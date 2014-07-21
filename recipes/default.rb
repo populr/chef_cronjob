@@ -8,6 +8,7 @@
 #
 
 cron 'cronjobs.rake' do
+  user 'deploy'
   minute '*/5'
   command "cd /srv/www/touchstream/current && NEWRELIC_DISPATCHER='rake' bundle exec rake cron"
 end
