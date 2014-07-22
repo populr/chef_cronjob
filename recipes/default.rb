@@ -10,7 +10,5 @@
 cron 'cronjobs.rake' do
   user 'deploy'
   minute '*/5'
-  command <<BASH
-/bin/bash -l -c "source /home/deploy/.bash_profile && cd /srv/www/touchstream/current && NEWRELIC_DISPATCHER='rake' bundle exec rake cron" 2>&1
-BASH
+  command "/bin/bash -l -c 'source ~/.bash_profile && cd /srv/www/touchstream/current && NEWRELIC_DISPATCHER=rake bundle exec rake cron' 2>&1"
 end
